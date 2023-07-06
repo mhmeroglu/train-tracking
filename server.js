@@ -19,7 +19,7 @@ const port = 5000;
 const uri = `mongodb+srv://${username}:${password}@${cluster}/${dbName}`;
 
 
-app.get('/data', async (req, res) => {
+app.get('', async (req, res) => {
   try {
     await mongoose.connect(uri, { useUnifiedTopology: true });
     const db = mongoose.connection;
@@ -36,7 +36,7 @@ app.get('/data', async (req, res) => {
 app.listen(port, () => console.log(`Sunucu çalışıyor:http://localhost:${port}`));
 
 setInterval(() => {
-  axios.get('http://localhost:5000/data')
+  axios.get('http://localhost:5000')
     .then(response => {
       const data = response.data;
       console.log('Güncellendi:', data);
